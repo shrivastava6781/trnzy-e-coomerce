@@ -1,0 +1,41 @@
+.top-selling {
+  padding: 1rem 4rem;
+  text-align: center;
+  background-color: #000;
+  
+  .title {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Button */
+  .showmore-btn {
+    margin-top: 3rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    background: #111;
+    color: white;
+    border: 1px solid #222;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .showmore-btn:hover {
+    background: #d9ff00;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(217,255,0,0.15);
+  }
+}
+
+@media (max-width: 768px) {
+  .top-selling {
+    padding: 1rem 0.5rem;
+    text-align: center;
+  }
+}

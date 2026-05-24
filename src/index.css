@@ -1,0 +1,70 @@
+/* Regular */
+@font-face {
+  font-family: "IntegralCF";
+  src: url("/fonts/Fontspring-DEMO-integralcf-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Medium */
+@font-face {
+  font-family: "IntegralCF-Medium";
+  src: url("/fonts/Fontspring-DEMO-integralcf-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* SemiBold / DemiBold */
+@font-face {
+  font-family: "IntegralCF-SemiBold";
+  src: url("/fonts/Fontspring-DEMO-integralcf-demibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: "IntegralCF-Bold";
+  src: url("/fonts/Fontspring-DEMO-integralcf-extrabold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ExtraBold */
+@font-face {
+  font-family: "IntegralCF-bolder";
+  src: url("/fonts/Fontspring-DEMO-integralcf-extraboldoblique.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Heavy / Black */
+@font-face {
+  font-family: "IntegralCF-Black";
+  src: url("/fonts/Fontspring-DEMO-integralcf-heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}

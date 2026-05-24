@@ -1,0 +1,19 @@
+.favorite-container {
+  padding: 1rem 4rem;
+  padding-bottom: 7rem;
+  text-align: center;
+  background-color: #000;
+  
+  .title {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .favorite-container {
+    padding: 1rem 0.5rem;
+    padding-bottom: 7rem;
+    text-align: center;
+  }
+}

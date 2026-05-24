@@ -1,0 +1,189 @@
+/* Footer */
+.footer {
+  background: #000;
+  color: white;
+  /* margin-top: 6rem;  */
+  padding: 80px 40px 20px;
+  position: relative;
+  border-top: 1px solid #1c1c1c;
+
+  /* 🔥 Newsletter FIX */
+  .newsletter {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    background: rgba(15,15,15,0.95);
+    backdrop-filter: blur(14px);
+    border: 1px solid #222;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    flex-wrap: wrap; /* important */
+    gap: 1rem;
+  }
+  
+  .newsletterheading {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Newsletter box */
+  .newsletter-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .newsletter-box input {
+    flex: 1;
+    padding: 0.6rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    border: 1px solid #222;
+    background: #111;
+    color: white;
+  }
+  .newsletter-box input::placeholder {
+    color: #777;
+  }
+  
+  .newsletter-box button {
+    padding: 8px 16px;
+    border: none;
+    background: #d9ff00;
+    color: black;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+  }
+  
+  .newsletter-box button:hover {
+    box-shadow: 0 10px 20px rgba(217,255,0,0.2);
+  }
+  
+  /* 🔥 Footer Top Grid */
+  .footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+  }
+  
+  /* Columns */
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Company Name */
+  .company-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Description */
+  .footer-desc {
+    font-size: 14px;
+    color: #cccccc;
+  }
+  
+  /* Headings */
+  .footer-heading {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Links */
+  .footer-col a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .footer-col a:hover {
+    color: #d9ff00;
+    transform: translateX(5px);
+  }
+  
+  /* Social */
+  .social-link {
+    display: flex;
+    gap: 12px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  /* Contact text */
+  .footer-col p {
+    font-size: 14px;
+    color: #9a9a9a;
+  }
+  
+  /* Bottom */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #aaa;
+    padding-top: 15px;
+    font-size: 14px;
+  }
+  .social-link .bi:hover {
+    color: #d9ff00;
+    transform: translateY(-0.2rem);
+  }
+}
+
+
+/* 🔥 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 100px 20px 20px;
+    
+    .newsletter {
+      flex-direction: column;
+      text-align: center;
+      width: 90%;
+      padding: 1rem;
+    }
+  
+    .newsletterheading {
+      font-size: 18px;
+    }
+  
+    .newsletter-box {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .newsletter-box button {
+      width: 100%;
+    }
+  
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+}
+
+/* 🔥 SMALL MOBILE */
+@media (max-width: 480px) {
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletterheading {
+    font-size: 16px;
+  }
+}
