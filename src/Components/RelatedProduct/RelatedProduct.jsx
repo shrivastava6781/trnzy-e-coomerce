@@ -11,7 +11,7 @@ const RelatedProduct = () => {
   const fetchrRlated = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/products');
+      const response = await axios.get('https://ecommerce-backend-9rq3.onrender.com/api/products');
       setitems(response.data);
       setLoading(false);
     } catch (error) {
@@ -40,7 +40,7 @@ const RelatedProduct = () => {
           {items.map(product => (
             <div key={product._id} className='cart' onClick={() => handleGoToDetail(product)}>
               <div className='cart-top-image'>
-                <img src={`http://localhost:5000/uploads/${product.images[0]}`} alt={product.name} />
+                <img src={`https://ecommerce-backend-9rq3.onrender.com/uploads/${product.images[0]}`} alt={product.name} />
               </div>
               <div className='cart-bottom'>
                 <div className='cart-header'>

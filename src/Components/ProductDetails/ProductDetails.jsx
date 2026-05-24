@@ -19,7 +19,7 @@ const ProductDetails = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+      const res = await axios.get(`https://ecommerce-backend-9rq3.onrender.com/api/products/${id}`);
       dispatch(setProduct(res.data.product))
       setMainImage(res.data.product.image);
       dispatch(setLoading(false))
@@ -44,7 +44,7 @@ const ProductDetails = () => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/add/cart/${user.user.id}`,
+        `https://ecommerce-backend-9rq3.onrender.com/api/add/cart/${user.user.id}`,
         { productId: id, quantity: qty },
       );
 
@@ -73,7 +73,7 @@ const ProductDetails = () => {
           {images.map((img, i) => (
             <img
               key={i}
-              src={`http://localhost:5000/${img}`}
+              src={`https://ecommerce-backend-9rq3.onrender.com/${img}`}
               onClick={() => setMainImage(img)}
               className={mainImage === img ? "active" : ""}
             />
@@ -81,7 +81,7 @@ const ProductDetails = () => {
         </div>
 
         <div className="pd-main">
-          <img src={`http://localhost:5000/${mainImage}`} alt="" />
+          <img src={`https://ecommerce-backend-9rq3.onrender.com/${mainImage}`} alt="" />
         </div>
       </div>
 

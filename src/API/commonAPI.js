@@ -4,7 +4,7 @@ import { setAddToFavorite, setFavoriteData, setRemoveToFavorite } from "../redux
 
 const fetchCart = async (dispatch, userId) => {
     try {
-        const res = await axios.get(`http://localhost:5000/api/cart/${userId}`);
+        const res = await axios.get(`https://ecommerce-backend-9rq3.onrender.com/api/cart/${userId}`);
         dispatch(setCartItems(res.data.cartData?.items || []))
     } 
     catch (err) {
@@ -15,7 +15,7 @@ const fetchCart = async (dispatch, userId) => {
 const addWishlistAPI = async (dispatch, userId, id) => {
   try {
     const res = await axios.post(
-      `http://localhost:5000/api/addFavorite`,
+      `https://ecommerce-backend-9rq3.onrender.com/api/addFavorite`,
       { userId, id }
     );
 
@@ -28,7 +28,7 @@ const addWishlistAPI = async (dispatch, userId, id) => {
 const removeWishlistAPI = async (dispatch, userId, id) => {
   try {
     const res = await axios.delete(
-      `http://localhost:5000/api/removeFavorite`,
+      `https://ecommerce-backend-9rq3.onrender.com/api/removeFavorite`,
       {
         data: { userId, id }, // ✅ FIXED
       }
@@ -43,7 +43,7 @@ const removeWishlistAPI = async (dispatch, userId, id) => {
 const getFavoriteProduct = async (dispatch, userId) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/get/favorite/${userId}` // ✅ FIXED
+      `https://ecommerce-backend-9rq3.onrender.com/api/get/favorite/${userId}` // ✅ FIXED
     );
 
     console.log("product", response.data.wishlist.products);

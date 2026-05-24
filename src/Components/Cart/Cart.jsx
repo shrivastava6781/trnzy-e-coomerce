@@ -17,7 +17,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/cart/${userId}`);
+        const res = await axios.get(`https://ecommerce-backend-9rq3.onrender.com/api/cart/${userId}`);
         dispatch(setCartItems(res.data.cartData?.items || []))
       } 
       catch (err) {
@@ -33,7 +33,7 @@ const Cart = () => {
     if (quantity < 1) return;
 
     try {
-      const res = await axios.put(`http://localhost:5000/api/cart/update`, {
+      const res = await axios.put(`https://ecommerce-backend-9rq3.onrender.com/api/cart/update`, {
         userId,
         productId,
         quantity
@@ -51,7 +51,7 @@ const Cart = () => {
   // 🔥 Remove Item
   const removeItem = async (productId) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/cart/remove`, {
+      const res = await axios.delete(`https://ecommerce-backend-9rq3.onrender.com/api/cart/remove`, {
         data: { userId, productId }
       });
 
@@ -87,7 +87,7 @@ const Cart = () => {
               <div className='cart-card' key={item._id}>
 
                 <img
-                  src={`http://localhost:5000/${item.image}`}
+                  src={`https://ecommerce-backend-9rq3.onrender.com/${item.image}`}
                   alt={item.name}
                 />
 

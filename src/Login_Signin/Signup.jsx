@@ -27,7 +27,7 @@ function Signup() {
 
     try {
       const sendData = await axios.post(
-        'http://localhost:5000/api/signup',
+        'https://ecommerce-backend-9rq3.onrender.com/api/signup',
         { name, email, password },
         { headers: { 'Content-Type': 'application/json' } }
       );

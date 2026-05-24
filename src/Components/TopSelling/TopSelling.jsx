@@ -13,7 +13,7 @@ const TopSelling = () => {
   
   async function getProduct(){
     try {
-      let response = await axios.get("http://localhost:5000/api/get/products")
+      let response = await axios.get("https://ecommerce-backend-9rq3.onrender.com/api/get/products")
       console.log(response.data)
       dispatch(setProducts(response.data.product))
     } 

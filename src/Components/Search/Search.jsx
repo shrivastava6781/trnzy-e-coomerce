@@ -23,7 +23,7 @@ const Search = () => {
   async function getProduct() {
     try {
       let response = await axios.get(
-        "http://localhost:5000/api/get/products"
+        "https://ecommerce-backend-9rq3.onrender.com/api/get/products"
       );
 
       dispatch(setProducts(response.data.product));

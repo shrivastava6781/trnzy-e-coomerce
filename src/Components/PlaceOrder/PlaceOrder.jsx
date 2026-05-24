@@ -15,7 +15,7 @@ const PlaceOrder = () => {
   const fetchLatestOrder = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/order/${userId}`
+        `https://ecommerce-backend-9rq3.onrender.com/api/order/${userId}`
       );
 
       // latest order (you sorted desc in backend)
@@ -59,7 +59,7 @@ const PlaceOrder = () => {
         {order.items.map((item, index) => (
           <div className="order-item" key={index}>
             <img
-              src={`http://localhost:5000/${item.image}`}
+              src={`https://ecommerce-backend-9rq3.onrender.com/${item.image}`}
               alt={item.name}
             />
 

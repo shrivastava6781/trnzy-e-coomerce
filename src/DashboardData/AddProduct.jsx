@@ -40,7 +40,7 @@ const AddProduct = ({ setAddProduct }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/products", // FIXED PORT
+        "https://ecommerce-backend-9rq3.onrender.com/api/products", // FIXED PORT
         formData
       );
 

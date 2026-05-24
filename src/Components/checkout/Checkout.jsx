@@ -40,7 +40,7 @@ const Checkout = () => {
   const fetchCart = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/cart/${userId}`
+        `https://ecommerce-backend-9rq3.onrender.com/api/cart/${userId}`
       );
       console.log("fds", res.data.cartData)
       dispatch(setCartItems(res.data.cartData.items))
@@ -53,7 +53,7 @@ const Checkout = () => {
   const fetchAddress = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/get/address/${userId}`
+        `https://ecommerce-backend-9rq3.onrender.com/api/get/address/${userId}`
       );
       console.log(res.data.addressData.addressData)
       setAddresses(res.data.addressData.addressData || []);
@@ -66,7 +66,7 @@ const Checkout = () => {
   const handleAddAddress = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/address/${userId}`,
+        `https://ecommerce-backend-9rq3.onrender.com/api/address/${userId}`,
         { ...formData }
       );
 
@@ -98,7 +98,7 @@ const Checkout = () => {
     try {
       // 🔥 Step 1: Create order from backend
       const { data } = await axios.post(
-        "http://localhost:5000/api/payment/create-order",
+        "https://ecommerce-backend-9rq3.onrender.com/api/payment/create-order",
         {
           amount: Math.floor(total), // amount in rupees
         }
@@ -120,7 +120,7 @@ const Checkout = () => {
           try {
             // 🔥 Step 3: Verify payment
             const verifyRes = await axios.post(
-              "http://localhost:5000/api/payment/verify",
+              "https://ecommerce-backend-9rq3.onrender.com/api/payment/verify",
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
@@ -132,7 +132,7 @@ const Checkout = () => {
             if (verifyRes.data.success) {
               // 🔥 Step 4: Save order in DB
               const orderRes = await axios.post(
-                "http://localhost:5000/api/order",
+                "https://ecommerce-backend-9rq3.onrender.com/api/order",
                 {
                   userId,
                   items: cartItems,
@@ -150,7 +150,7 @@ const Checkout = () => {
               dispatch(clearCart());
               // clear cart from DB
               await axios.delete(
-                `http://localhost:5000/api/cart/clear/${userId}`
+                `https://ecommerce-backend-9rq3.onrender.com/api/cart/clear/${userId}`
               );
 
               console.log("checkout 4:- ", order, cartItems)

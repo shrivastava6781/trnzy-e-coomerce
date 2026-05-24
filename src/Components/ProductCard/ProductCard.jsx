@@ -65,7 +65,7 @@ const ProductCard = ({ products }) => {
               </span>
 
               <img
-                src={`http://localhost:5000/${item.image}`}
+                src={`https://ecommerce-backend-9rq3.onrender.com/${item.image}`}
                 alt={item.name}
               />
 
