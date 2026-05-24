@@ -65,7 +65,7 @@ const ProductCard = ({ products }) => {
               </span>
 
               <img
-                src={`https://ecommerce-backend-9rq3.onrender.com/${item.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${item.image}`}
                 alt={item.name}
               />
 

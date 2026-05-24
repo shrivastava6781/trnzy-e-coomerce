@@ -13,7 +13,7 @@ const NewArrival = () => {
   
   async function getProduct(){
     try {
-      let response = await axios.get("https://ecommerce-backend-9rq3.onrender.com/api/get/products")
+      let response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/get/products`)
       console.log(response.data)
       dispatch(setProducts(response.data.product))
     } 

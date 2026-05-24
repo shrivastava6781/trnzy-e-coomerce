@@ -27,7 +27,7 @@ function Signup() {
 
     try {
       const sendData = await axios.post(
-        'https://ecommerce-backend-9rq3.onrender.com/api/signup',
+        `${import.meta.env.VITE_BACKEND_URL}/api/signup`,
         { name, email, password },
         { headers: { 'Content-Type': 'application/json' } }
       );

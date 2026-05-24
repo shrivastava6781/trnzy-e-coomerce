@@ -52,6 +52,12 @@ const Navbar = () => {
   }
 
   return (
+    <>
+    {
+      addProduct
+      &&
+      <AddProduct setAddProduct={setAddProduct}/>
+    }
     <nav className="navbar">
       {/* Logo */}
       <div className="logo" onClick={() => navigate("/")}></div>
@@ -179,6 +185,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };
 

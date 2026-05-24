@@ -26,7 +26,7 @@ function ResetPassword() {
       setLoading(true)
 
       const response = await axios.post(
-        `https://ecommerce-backend-9rq3.onrender.com/api/reset-password/${token}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/reset-password/${token}`,
         { password }
       )
 

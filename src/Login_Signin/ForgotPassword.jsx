@@ -18,7 +18,7 @@ function ForgotPassword() {
     try {
       setLoading(true)
       const response = await axios.post(
-        "https://ecommerce-backend-9rq3.onrender.com/api/forgot-password",
+        `${import.meta.env.VITE_BACKEND_URL}/api/forgot-password`,
         { email }
       )
       alert(response.data.message)

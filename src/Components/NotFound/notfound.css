@@ -1,0 +1,104 @@
+.notfound-page {
+
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at top,
+    rgba(217,255,0,0.08),
+    transparent 35%),
+    #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+}
+
+.notfound-container {
+
+  text-align: center;
+
+  color: white;
+}
+
+.notfound-container h1 {
+
+  font-size: 8rem;
+
+  color: #d9ff00;
+
+  line-height: 1;
+}
+
+.notfound-container h2 {
+
+  font-size: 2.5rem;
+
+  margin-top: 1rem;
+}
+
+.notfound-container p {
+
+  color: #777;
+
+  margin-top: 1rem;
+
+  font-size: 1rem;
+}
+
+.notfound-container button {
+
+  margin-top: 2rem;
+
+  padding: 1rem 2rem;
+
+  border: none;
+
+  border-radius: 0.7rem;
+
+  background: #d9ff00;
+
+  color: black;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.notfound-container button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 20px rgba(217,255,0,0.2);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .notfound-container h1 {
+
+    font-size: 5rem;
+  }
+
+  .notfound-container h2 {
+
+    font-size: 1.8rem;
+  }
+
+  .notfound-container p {
+
+    font-size: 0.9rem;
+  }
+
+  .notfound-container button {
+
+    width: 100%;
+  }
+}

@@ -28,7 +28,7 @@ function Login() {
     }
 
     try {
-      const sendData = await axios.post('https://ecommerce-backend-9rq3.onrender.com/api/login',form);
+      const sendData = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/login`,form);
       dispatch(login(sendData.data))
       // console.log("sendData.data", sendData.data?.user?.id)
       commonAPI.fetchCart(dispatch, sendData.data?.user?.id);

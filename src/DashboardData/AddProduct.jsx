@@ -3,117 +3,190 @@ import React, { useRef, useState } from "react";
 import "./AddProduct.css";
 
 const AddProduct = ({ setAddProduct }) => {
+  const imageRef = useRef(null);
+
   const [form, setForm] = useState({
     name: "",
+    description: "",
     price: "",
     discount: "",
     rating: "",
-    description: "",
     image: null,
   });
-  const imageRef = useRef(null)
 
+  const [loading, setLoading] = useState(false);
+
+  // Handle Input Change
   function handleChange(e) {
-    const { name, value } = e.target;
-    if(name == "image"){
-        console.log(e.target.files, e.target.files[0])
-        setForm((prev)=>({
-            ...prev,
-            [name] : e.target.files[0]
-        }))
-    }
-    else{
-        setForm((prev)=>({
-            ...prev,
-            [name] : value
-        }))
+    const { name, value, files } = e.target;
+
+    if (name === "image") {
+      setForm((prev) => ({
+        ...prev,
+        image: files[0],
+      }));
+    } else {
+      setForm((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
     }
   }
 
+  // Submit Form
   async function handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-
-    for (let key in form) {
-        formData.append(key, form[key]);
-    }
 
     try {
+      setLoading(true);
+
+      const formData = new FormData();
+
+      Object.keys(form).forEach((key) => {
+        formData.append(key, form[key]);
+      });
+
       const response = await axios.post(
-        "https://ecommerce-backend-9rq3.onrender.com/api/products", // FIXED PORT
-        formData
+        `${import.meta.env.VITE_BACKEND_URL}/api/products`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
 
-      console.log("Response", response.data);
+      console.log(response.data);
 
       alert("Product Added Successfully ✅");
 
+      // Reset Form
       setForm({
         name: "",
+        description: "",
         price: "",
         discount: "",
         rating: "",
-        description: "",
         image: null,
       });
-      if(imageRef.current){
-        imageRef.current.value = null
-      }
-    } 
-    catch (error) {
-      console.log("Error", error);
-      alert("Error adding product ❌");
-    }
-  }
 
-  function handleBack() {
-    setAddProduct(false);
+      if (imageRef.current) {
+        imageRef.current.value = "";
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Error Adding Product ❌");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <div className="add-product-overlay">
       <div className="add-product-card">
-        
-        <div className="header">
+
+        {/* Header */}
+        <div className="header-title">
           <h2>Add Product</h2>
-          <span className="close-btn" onClick={handleBack}>❌</span>
+
+          <span
+            className="close-btn"
+            onClick={() => setAddProduct(false)}
+          >
+            ✖
+          </span>
         </div>
 
+        {/* Form */}
         <form onSubmit={handleSubmit}>
 
           <div className="form-group">
-            <label>Name</label>
-            <input type="text" name="name" value={form.name} onChange={handleChange} />
+            <label>Product Name</label>
+
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Enter product name"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label>Description</label>
-            <input type="text" name="description" value={form.description} onChange={handleChange} />
+
+            <textarea
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              placeholder="Enter product description"
+              rows="4"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label>Price</label>
-            <input type="number" name="price" value={form.price} onChange={handleChange} />
+
+            <input
+              type="number"
+              name="price"
+              value={form.price}
+              onChange={handleChange}
+              placeholder="Enter product price"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label>Discount (%)</label>
-            <input type="number" name="discount" value={form.discount} onChange={handleChange} />
+
+            <input
+              type="number"
+              name="discount"
+              value={form.discount}
+              onChange={handleChange}
+              placeholder="Enter discount"
+            />
           </div>
 
           <div className="form-group">
             <label>Rating</label>
-            <input type="number" step="0.1" name="rating" value={form.rating} onChange={handleChange} />
+
+            <input
+              type="number"
+              step="0.1"
+              max="5"
+              min="0"
+              name="rating"
+              value={form.rating}
+              onChange={handleChange}
+              placeholder="Enter rating"
+            />
           </div>
 
           <div className="form-group">
-            <label>Image URL</label>
-            <input ref={imageRef} type="file" name="image" onChange={handleChange} />
+            <label>Product Image</label>
+
+            <input
+              ref={imageRef}
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleChange}
+              required
+            />
           </div>
 
-          <button type="submit" className="submit-btn">
-            Submit
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={loading}
+          >
+            {loading ? "Adding..." : "Add Product"}
           </button>
+
         </form>
       </div>
     </div>
