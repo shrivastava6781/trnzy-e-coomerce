@@ -83,7 +83,9 @@ function Login() {
           </div>
 
           <div className="form-footer">
-            <a href="#">Forgot Password?</a>
+            <p className='forgot-link' onClick={() => navigate('/forgot-password')}>
+              Forgot Password?
+            </p>
           </div>
 
           <button type="submit" className="login-btn" >Sign In</button>

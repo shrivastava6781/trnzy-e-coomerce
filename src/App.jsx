@@ -17,6 +17,8 @@ import FavoriteProducts from './Components/FavoriteProducts/FavoriteProducts';
 import Search from './Components/Search/Search';
 import ContactUs from './Components/ContactUs/ContactUs';
 import AboutUs from './Components/AboutUs/AboutUs';
+import ForgotPassword from './Login_Signin/ForgotPassword';
+import ResetPassword from './Login_Signin/ResetPassword';
 
 function App() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -48,6 +50,8 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/place-order" element={<PlaceOrder />} />
             <Route path="/favorite" element={<FavoriteProducts />} />
+            <Route path="/forgot-password" element={<ForgotPassword />}/>
+            <Route path="/reset-password/:token" element={<ResetPassword />}/>
           </Routes>
         <Footer />
       </BrowserRouter>

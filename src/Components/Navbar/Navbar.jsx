@@ -28,6 +28,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
 
   function handleAddProduct() {
@@ -92,6 +93,13 @@ const Navbar = () => {
 
               <button className="btn" onClick={handleSignin}>
                 Register
+              </button>
+            </li>
+          )}
+          {auth && (
+            <li className="mobile-auth">
+              <button className="btn" onClick={handleLogout}>
+                Logout
               </button>
             </li>
           )}

@@ -102,13 +102,13 @@
       text-align: right;
     }
     
-    .form-footer a {
+    .forgot-link {
       font-size: 13px;
       color: #d9ff00;
       text-decoration: none;
     }
     
-    .form-footer a:hover {
+    .forgot-link:hover {
       text-decoration: underline;
     }
     
