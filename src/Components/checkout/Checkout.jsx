@@ -131,11 +131,41 @@ const Checkout = () => {
 
             if (verifyRes.data.success) {
               // 🔥 Step 4: Save order in DB
+              const orderItems = cartItems.map((item) => ({
+                // Common Fields
+                productType: item.productType || "normal",
+                productId: item.productId,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                image: item.image,
+
+                // Custom Product Fields
+                baseProductId: item.baseProductId || null,
+                printDesignId: item.printDesignId || null,
+                uploadedDesign: item.uploadedDesign || "",
+                previewImage: item.previewImage || "",
+                size: item.size || "",
+                color: item.color || "",
+                printPosition: item.printPosition || "front",
+
+                designConfig: item.designConfig
+                  ? 
+                    {
+                      x: item.designConfig.x,
+                      y: item.designConfig.y,
+                      width: item.designConfig.width,
+                      rotation: item.designConfig.rotation,
+                    }
+                  : 
+                    {},
+              }));
+
               const orderRes = await axios.post(
                 `${import.meta.env.VITE_BACKEND_URL}/api/order`,
                 {
                   userId,
-                  items: cartItems,
+                  items: orderItems,
                   address: addresses[selectedAddress],
                   amount: Math.floor(total),
                   paymentId: response.razorpay_payment_id,
