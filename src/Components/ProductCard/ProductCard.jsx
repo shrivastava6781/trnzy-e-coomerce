@@ -31,14 +31,21 @@ const ProductCard = ({ products }) => {
   const handleWishlist = async (e, itemId) => {
     e.preventDefault();
     e.stopPropagation();
+    const isFavorite = favoriteData.some(
+      (item) => item._id == itemId
+    );
 
-    const isFavorite = favoriteData.includes(itemId);
+    console.log("handleWishlist:- 1", favoriteData, isFavorite)
 
     if (isFavorite) {
+      console.log("Removing from wishlist");
       await commonAPI.removeWishlistAPI(dispatch, userId, itemId);
-    } else {
+    } 
+    else {
+      console.log("Adding to wishlist");
       await commonAPI.addWishlistAPI(dispatch, userId, itemId);
     }
+
   };
 
   return (

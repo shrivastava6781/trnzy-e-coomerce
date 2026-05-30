@@ -11,6 +11,8 @@ const AddProduct = ({ setAddProduct }) => {
     price: "",
     discount: "",
     rating: "",
+    type: "",
+    category: "",
     image: null,
   });
 
@@ -58,7 +60,7 @@ const AddProduct = ({ setAddProduct }) => {
 
       console.log(response.data);
 
-      alert("Product Added Successfully ✅");
+      // alert("Product Added Successfully ✅");
 
       // Reset Form
       setForm({
@@ -67,6 +69,8 @@ const AddProduct = ({ setAddProduct }) => {
         price: "",
         discount: "",
         rating: "",
+        type: "",
+        category: "",
         image: null,
       });
 
@@ -178,6 +182,48 @@ const AddProduct = ({ setAddProduct }) => {
               required
             />
           </div>
+
+          <div className="form-group">
+            <label>Product Type</label>
+
+            <select
+              name="type"
+              value={form.type}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Type</option>
+
+              <option value="cloth">Cloth</option>
+
+              <option value="print">Print Design</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Category</label>
+
+            <select
+              name="category"
+              value={form.category}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Category</option>
+
+              {/* Cloth Categories */}
+              <option value="tshirt">T-Shirt</option>
+              <option value="hoodie">Hoodie</option>
+              <option value="jacket">Jacket</option>
+
+              {/* Print Categories */}
+              <option value="anime">Anime</option>
+              <option value="marvel">Marvel</option>
+              <option value="god">God</option>
+              <option value="quote">Quote</option>
+            </select>
+          </div>
+
 
           <button
             type="submit"

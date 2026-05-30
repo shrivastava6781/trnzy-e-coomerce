@@ -25,38 +25,41 @@ const Cart = () => {
       }
     };
 
-    if (userId) fetchCart();
+    if (userId) 
+      fetchCart();
+
   }, [userId]);
 
   // 🔥 Update Quantity
-  const updateQty = async (productId, quantity) => {
+  const updateQty = async (cartItemId, quantity) => {
     if (quantity < 1) return;
 
     try {
-      const res = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/cart/update`, {
-        userId,
-        productId,
-        quantity
-      });
+      const res = await axios.put( `${import.meta.env.VITE_BACKEND_URL}/api/cart/update`, {
+          userId,
+          cartItemId,
+          quantity,
+        }
+      );
 
-      dispatch(updateQuantity(productId, quantity))
-      dispatch(setCartItems(res.data.cartData?.items || []))
-
-
+      dispatch(setCartItems(res.data.cartData?.items || []));
     } catch (err) {
       console.error("Update failed", err);
     }
   };
 
   // 🔥 Remove Item
-  const removeItem = async (productId) => {
+  const removeItem = async (cartItemId) => {
     try {
       const res = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/cart/remove`, {
-        data: { userId, productId }
-      });
+          data: {
+            userId,
+            cartItemId,
+          },
+        }
+      );
 
-      dispatch(updateQuantity(productId))
-      dispatch(setCartItems(res.data.cartData?.items || []))
+      dispatch(setCartItems(res.data.cartData?.items || []));
     } catch (err) {
       console.error("Remove failed", err);
     }
@@ -86,25 +89,41 @@ const Cart = () => {
             cartItems.map(item => (
               <div className='cart-card' key={item._id}>
 
-                <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}/${item.image}`}
-                  alt={item.name}
-                />
+                 <img
+                 src={
+                  item.productType == "custom"
+                  ? 
+                    item.previewImage
+                  : 
+                    `${import.meta.env.VITE_BACKEND_URL}/${item.image}`
+                 }
+                 alt={item.name}
+                 className='cart-image'
+               />
 
                 <div className='cart-info'>
                   <h3>{item.name}</h3>
 
-                  <span className='price'>₹{item.price}</span>
+                  <div className='cart-price' >
+                    <div className='price'>₹{item.price}</div>                 
+                    {
+                      item.productType === "custom" 
+                      &&
+                      <span className='custom-badge'>
+                        Customized
+                      </span>
+                    }
+                  </div>
 
                   {/* Quantity */}
                   <div className='qty-box'>
-                    <button onClick={() => updateQty(item.productId, item.quantity - 1)}>
+                    <button onClick={() => updateQty(item._id, item.quantity - 1)}>
                       -
                     </button>
 
                     <span>{item.quantity}</span>
 
-                    <button onClick={() => updateQty(item.productId, item.quantity + 1)}>
+                    <button onClick={() => updateQty(item._id, item.quantity + 1)}>
                       +
                     </button>
                   </div>
@@ -112,7 +131,7 @@ const Cart = () => {
                   {/* Remove */}
                   <button
                     className='remove-btn'
-                    onClick={() => removeItem(item.productId)}
+                    onClick={() => removeItem(item._id)}
                   >
                     Remove
                   </button>

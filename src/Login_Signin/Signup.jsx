@@ -34,7 +34,7 @@ function Signup() {
         dispatch(signin(sendData));
 
 
-      alert('Signup successful! Please login.');
+      // alert('Signup successful! Please login.');
       navigate('/login');
     } catch (error) {
       console.error('Signup failed:', error.response?.data?.message || error.message);

@@ -90,26 +90,21 @@
       }
   
       input,
-      textarea {
+      textarea,
+      select {
         width: 100%;
-  
         padding: 0.85rem 1rem;
-  
         border: 1px solid #dcdcdc;
         border-radius: 12px;
-  
         outline: none;
-  
         font-size: 0.95rem;
-  
         transition: 0.3s;
-  
         background: #fafafa;
+        color: black;
   
         &:focus {
           border-color: #000;
           background: white;
-  
           box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
         }
       }

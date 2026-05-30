@@ -44,6 +44,7 @@
     /* 🔍 Search Box */
     .search-box {
       position: relative;
+      width: 100%;
 
       input {
         padding: 6px 30px 6px 10px;
@@ -52,8 +53,8 @@
         outline: none;
         border: 1px solid #222;
         background: #111;
-        width: 25rem;
         color: white;
+        width: 100%;
       }
       
       .icon {
@@ -63,6 +64,7 @@
         cursor: pointer;
         color: #d9ff00;
       }
+
       input:focus {
         border-color: #d9ff00;
       }
@@ -226,13 +228,13 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.2rem;
-      width: 79%;
+      width: 72%;
 
       /* 🔍 Search Box */
       .search-box {
         margin-left: 1rem;
         input {
-          width: 12rem;
+          width: 100%;
         }
       }
 
@@ -243,11 +245,11 @@
 
     .menu-toggle {
       position: absolute;
-      right: 1rem;
+      right: 1.1rem;
       top: 0.6rem;
       display: block;
     }
-    .menu-wrapper:hover .nav-links {
+    .nav-links.active {
       left: 0;
     }
     

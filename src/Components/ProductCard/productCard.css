@@ -43,7 +43,7 @@
       color: #e1e1e1;
     
       display: -webkit-box;
-      -webkit-line-clamp: 2;   /* limit to 2 lines */
+      -webkit-line-clamp: 1;   /* limit to 2 lines */
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -53,7 +53,6 @@
     .desc {
       font-size: 13px;
       color: #c5c5c5;
-    
       display: -webkit-box;
       -webkit-line-clamp: 1;   /* limit to 1 line */
       -webkit-box-orient: vertical;
@@ -63,31 +62,32 @@
     /* Price */
     .price-section {
       margin: 2px 0;
+      font-size: 1rem;
     
+      .price {
+        color: #d9ff00;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      
+      .old-price {
+        text-decoration: line-through;
+        color: #999;
+        margin-right: 5px;
+      }
+      
+      .discount {
+        color: red;
+        font-size: 12px;
+      }
+      
+      /* Rating */
+      .rating {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
     }
     
-    .price {
-      color: #d9ff00;
-      font-weight: bold;
-      margin-right: 8px;
-    }
-    
-    .old-price {
-      text-decoration: line-through;
-      color: #999;
-      margin-right: 5px;
-    }
-    
-    .discount {
-      color: red;
-      font-size: 12px;
-    }
-    
-    /* Rating */
-    .rating {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
   }
 
   /* 🔥 SHIMMER EFFECT */
@@ -144,11 +144,32 @@
     gap: 0.5rem;
 
     .card{
-      height: 20rem;
-      width: 11.8rem;
+      height: 17rem;
+      width: 10.8rem;
+
+      img{
+        height: 73%;
+      }
     }
-    .card img{
-      height: 64%;
+
+    /* Heading - 2 lines with ... */
+    .heading {
+      font-size: 1rem;
+    }
+    .desc {
+      font-size: 13px;
+    }
+
+    .price-section {
+      font-size: 0.8rem;
+      
+      .discount {
+        color: red;
+        font-size: 0.5rem;
+      }
+      .rating{
+        display: none;
+      }
     }
   }
 }

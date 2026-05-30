@@ -20,6 +20,8 @@ import AboutUs from './Components/AboutUs/AboutUs';
 import ForgotPassword from './Login_Signin/ForgotPassword';
 import ResetPassword from './Login_Signin/ResetPassword';
 import NotFound from './Components/NotFound/NotFound';
+import ScrollToTop from './ScrollToTop';
+import CustomizeProduct from './Components/CustomizeProduct/CustomizeProduct';
 
 function App() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -37,6 +39,7 @@ function App() {
   return (
     <div className="main-container">
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar/>
           <Routes>
             <Route path="/signup" element={<Signup />} />
@@ -53,6 +56,7 @@ function App() {
             <Route path="/favorite" element={<FavoriteProducts />} />
             <Route path="/forgot-password" element={<ForgotPassword />}/>
             <Route path="/reset-password/:token" element={<ResetPassword />}/>
+            <Route path="/customize" element={<CustomizeProduct />}/>
             <Route path="*" element={<NotFound />} />
           </Routes>
         <Footer />

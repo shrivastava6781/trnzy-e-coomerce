@@ -10,11 +10,8 @@ const ProductDetails = () => {
   const [mainImage, setMainImage] = useState("");
   const [qty, setQty] = useState(1);
   const [selectedSize, setSelectedSize] = useState("M");
-
   const {product, loading} = useSelector((state)=>state.productSlice)
-
   const dispatch = useDispatch()
-
   const navigate = useNavigate();
 
   const fetchProduct = async () => {
@@ -48,7 +45,7 @@ const ProductDetails = () => {
         { productId: id, quantity: qty },
       );
 
-      alert("Added to cart 🛒");
+      // alert("Added to cart 🛒");
       navigate('/cart')
     } catch (err) {
       console.log(err);
@@ -135,7 +132,7 @@ const ProductDetails = () => {
           Add to cart - ₹{finalPrice}
         </button>
 
-        <button className="buy-btn">Buy it now</button>
+        {/* <button className="buy-btn">Buy it now</button> */}
       </div>
     </div>
   );

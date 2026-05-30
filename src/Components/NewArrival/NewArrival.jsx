@@ -14,8 +14,13 @@ const NewArrival = () => {
   async function getProduct(){
     try {
       let response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/get/products`)
-      console.log(response.data)
-      dispatch(setProducts(response.data.product))
+      console.log("lkjhgfdsa:-",response.data.product)
+      const printProducts = response.data.product.filter(
+        (item) => item.type !== "print"
+      );
+       console.log("lkjhgfdsa:-",printProducts)
+       
+      dispatch(setProducts(printProducts))
     } 
     catch (error) {
       console.log("Error",error)

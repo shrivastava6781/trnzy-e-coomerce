@@ -4,6 +4,7 @@ import productReducer from "./features/ProductSlice"
 import CartReducer from "./features/CartSlice"
 import OrderReducer from "./features/OrderSlice"
 import favoriteReducer from "./features/favoriteSlice"
+import customizeReducer from "./features/customizeSlice"
 
 const store = configureStore({
     reducer:{
@@ -11,7 +12,8 @@ const store = configureStore({
         productSlice: productReducer,
         cartSlice: CartReducer,
         orderSlice: OrderReducer,
-        favoriteSlice: favoriteReducer
+        favoriteSlice: favoriteReducer,
+        customize: customizeReducer,
     }
 })
 

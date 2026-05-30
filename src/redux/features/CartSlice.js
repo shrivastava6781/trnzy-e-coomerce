@@ -17,19 +17,19 @@ const CartSlice = createSlice({
             state.loading = action.payload
         }),
 
-        updateQuantity: ((state, action)=>{
-            const { productId, quantity } = action.payload;
-            const item = state.cartItems.find((item)=> item.productId == productId)
-            if(item){
-                item.quantity = quantity
-            }
-        }),
+        // updateQuantity: ((state, action)=>{
+        //     const { productId, quantity } = action.payload;
+        //     const item = state.cartItems.find((item)=> item.productId == productId)
+        //     if(item){
+        //         item.quantity = quantity
+        //     }
+        // }),
 
-        removeCartItem: (state, action) => {
-            state.cartItems = state.cartItems.filter(
-                (item) => item.productId !== action.payload
-            );
-        },
+        // removeCartItem: (state, action) => {
+        //     state.cartItems = state.cartItems.filter(
+        //         (item) => item.productId !== action.payload
+        //     );
+        // },
 
         // 👉 clear cart (after order)
         clearCart: (state) => {

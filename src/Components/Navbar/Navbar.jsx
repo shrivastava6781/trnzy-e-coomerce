@@ -7,6 +7,7 @@ import { logout } from "../../redux/features/auth";
 
 const Navbar = () => {
   const [addProduct, setAddProduct] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // ✅ CHANGE THIS
   const [search, setSearch] = useState("");
@@ -20,19 +21,23 @@ const Navbar = () => {
 
   const handleLogin = () => {
     navigate("/login");
+    setMenuOpen(false);
   };
 
   const handleSignin = () => {
     navigate("/signup");
+    setMenuOpen(false);
   };
 
   const handleLogout = () => {
     dispatch(logout());
+    setMenuOpen(false);
     navigate("/");
   };
 
   function handleAddProduct() {
     setAddProduct(true);
+    setMenuOpen(false);
   }
 
   function handleOpenCart() {
@@ -63,30 +68,47 @@ const Navbar = () => {
       <div className="logo" onClick={() => navigate("/")}></div>
 
       <div className="menu-wrapper">
-        <div className="menu-toggle">☰</div>
+        <div
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </div>
 
         {/* Menu */}
-        <ul className="nav-links">
+        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
           <li>
-            <a href="#" onClick={() => navigate("/")}>
+            <a href="#"  onClick={() =>{ 
+              navigate("/");
+              setMenuOpen(false); } }
+            >
               Home
             </a>
           </li>
 
           <li>
-            <a href="#" onClick={() => navigate("/allproducts")}>
+            <a href="#"  onClick={() =>{ 
+              navigate("/allproducts");
+              setMenuOpen(false); } }
+            >
               Shop
             </a>
           </li>
 
           <li>
-            <a href="#" onClick={() => navigate("/allproducts")}>
+            <a href="#"  onClick={() =>{ 
+              navigate("/allproducts");
+              setMenuOpen(false); } }
+            >
               New Arrivals
             </a>
           </li>
 
           <li>
-            <a href="#" onClick={() => navigate("/allproducts")}>
+            <a href="#"  onClick={() =>{ 
+              navigate("/allproducts");
+              setMenuOpen(false); } }
+            >
               Brands
             </a>
           </li>

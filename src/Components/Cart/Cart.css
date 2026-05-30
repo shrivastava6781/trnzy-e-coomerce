@@ -66,13 +66,20 @@
           font-size: 1.2rem;
         }
 
-        .price {
-          font-weight: bold;
-          display: block;
-          margin: 0.8rem 0;
-          font-size: 1.1rem;
-          color: #d4ff00;
+        .cart-price{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          
+          .price {
+            font-weight: bold;
+            display: block;
+            margin: 0.8rem 0;
+            font-size: 1.1rem;
+            color: #d4ff00;
+          }
         }
+
 
         /* Quantity */
         .qty-box {

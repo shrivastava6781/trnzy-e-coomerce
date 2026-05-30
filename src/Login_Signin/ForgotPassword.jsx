@@ -21,7 +21,7 @@ function ForgotPassword() {
         `${import.meta.env.VITE_BACKEND_URL}/api/forgot-password`,
         { email }
       )
-      alert(response.data.message)
+      // alert(response.data.message)
       navigate('/login')
     }
     catch (error) {

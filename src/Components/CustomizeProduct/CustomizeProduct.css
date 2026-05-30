@@ -1,0 +1,49 @@
+/* CustomizeProduct.css */
+
+.customize-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #0f0f0f;
+  padding: 2rem;
+  box-sizing: border-box;
+  padding-bottom: 7rem;
+}
+
+.customize-container {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.customize-left {
+  width: 35%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.customize-right {
+  width: 65%;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+  .customize-container {
+    flex-direction: column;
+  }
+
+  .customize-left,
+  .customize-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .customize-page {
+    padding: 1rem;
+  }
+}
