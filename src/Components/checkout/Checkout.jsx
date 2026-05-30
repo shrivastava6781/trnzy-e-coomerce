@@ -109,7 +109,7 @@ const Checkout = () => {
 
       // 🔥 Step 2: Open Razorpay
       const options = {
-        key: "rzp_test_ScCQhphcnNd2q1", // your test key
+        key: import.meta.env.VITE_RZP_KEY, // your test key
         amount: Math.floor(order.amount),
         currency: "INR",
         name: "E-Bharat",
