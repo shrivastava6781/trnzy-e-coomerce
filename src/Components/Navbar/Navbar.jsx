@@ -100,6 +100,15 @@ const Navbar = () => {
               navigate("/allproducts");
               setMenuOpen(false); } }
             >
+              customize
+            </a>
+          </li>
+
+          <li>
+            <a href="#"  onClick={() =>{ 
+              navigate("/allproducts");
+              setMenuOpen(false); } }
+            >
               New Arrivals
             </a>
           </li>
