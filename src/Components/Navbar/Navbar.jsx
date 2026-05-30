@@ -97,7 +97,7 @@ const Navbar = () => {
 
           <li>
             <a href="#"  onClick={() =>{ 
-              navigate("/allproducts");
+              navigate("/customize");
               setMenuOpen(false); } }
             >
               customize
